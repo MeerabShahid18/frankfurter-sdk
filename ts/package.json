@@ -1,0 +1,62 @@
+{
+    "name":  "frankfurter-sdk",
+    "version":  "0.0.1",
+    "description":  "Unofficial TypeScript SDK for the Frankfurter public exchange rates API, generated using Voxgig SDKGen.",
+    "keywords":  [
+                     "typescript",
+                     "sdk",
+                     "openapi",
+                     "api-client",
+                     "frankfurter",
+                     "exchange-rates"
+                 ],
+    "homepage":  "https://github.com/MeerabShahid18/frankfurter-sdk#readme",
+    "repository":  {
+                       "type":  "git",
+                       "url":  "git+https://github.com/MeerabShahid18/frankfurter-sdk.git"
+                   },
+    "bugs":  {
+                 "url":  "https://github.com/MeerabShahid18/frankfurter-sdk/issues"
+             },
+    "main":  "dist/FrankfurterSDK.js",
+    "type":  "commonjs",
+    "types":  "dist/FrankfurterSDK.d.ts",
+    "files":  [
+                  "dist",
+                  "!dist/**/*.tsbuildinfo",
+                  "src",
+                  "README.md",
+                  "REFERENCE.md"
+              ],
+    "scripts":  {
+                    "pretest":  "npm run build",
+                    "test":  "node --enable-source-maps --test-concurrency=1 --test \"dist-test/**/*.test.js\"",
+                    "test-some":  "node -e \"const p = process.env.npm_config_pattern || process.env.TEST_PATTERN; const r = require(\u0027child_process\u0027).spawnSync(process.execPath, [\u0027--enable-source-maps\u0027, \u0027--experimental-test-isolation=none\u0027, ...(p ? [\u0027--test-name-pattern=\u0027 + p] : []), \u0027--test\u0027, \u0027dist-test/**/*.test.js\u0027], { stdio: \u0027inherit\u0027 }); process.exit(r.status ?? 1)\"",
+                    "pretest-utility":  "npm run build",
+                    "test-utility":  "node --enable-source-maps --test \"dist-test/utility/*.test.js\"",
+                    "pretest-coverage":  "npm run build",
+                    "test-coverage":  "node --test-concurrency=1 --experimental-test-coverage --test-coverage-exclude=\"**/dist-test/**\" --test-coverage-lines=85 --test-coverage-branches=68 --test-coverage-functions=88 --test \"dist-test/**/*.test.js\"",
+                    "watch":  "tsc --build src test -w",
+                    "build":  "node -e \"for (const p of process.argv.slice(1)) require(\u0027fs\u0027).rmSync(p, { recursive: true, force: true })\" dist dist-test \u0026\u0026 tsc --build src test",
+                    "clean":  "node -e \"for (const p of process.argv.slice(1)) require(\u0027fs\u0027).rmSync(p, { recursive: true, force: true })\" node_modules yarn.lock package-lock.json dist dist-test",
+                    "reset":  "npm run clean \u0026\u0026 npm i \u0026\u0026 npm run build \u0026\u0026 npm test"
+                },
+    "author":  {
+                   "name":  "Meerab Shahid",
+                   "url":  "https://github.com/MeerabShahid18"
+               },
+    "license":  "MIT",
+    "engines":  {
+                    "node":  "\u003e=22.13"
+                },
+    "dependencies":  {
+
+                     },
+    "peerDependencies":  {
+
+                         },
+    "devDependencies":  {
+                            "@types/node":  "^25.6.0",
+                            "typescript":  "^5.9.3"
+                        }
+}
